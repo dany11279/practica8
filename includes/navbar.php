@@ -14,14 +14,14 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Productos
+                        Clientes
                     </a>
                     <ul class="dropdown-menu bg-dark">
                         <li class="nav-item">
-                            <a class="nav-link" href="/practica8/vistas/productos/index.php">Crear producto</a>
+                            <a class="nav-link" href="/practica8/vistas/clientes/index.php">Agregar Cliente</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/practica8/vistas/productos/buscar.php">Buscar producto</a>
+                            <a class="nav-link" href="/practica8/vistas/clientes/buscar.php">Buscar Cliente</a>
                         </li>
                     </ul>
                 </li>
