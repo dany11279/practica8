@@ -19,10 +19,10 @@ class Cliente extends Conexion{
     public function guardar(){
         // Validar el NIT antes de guardar los datos
         if (!$this->validarNit($this->cliente_nit)) {
-            echo "<h3>El NIT ingresado es inválido. No se guardarán los datos.</h3>";
+            echo "<h1>El NIT ingresado es inválido. No se guardarán los datos.</h1>";
             // Mostrar el botón con un fondo azul y regresar al formulario
             echo '<button style="background-color: blue; color: white;" onclick="window.history.back();"><h3>Regresar al formulario</h3></button>';
-            exit();  
+            exit();
         }
 
         
