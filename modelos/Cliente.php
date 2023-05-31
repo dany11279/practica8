@@ -1,40 +1,40 @@
 <?php
 require 'Conexion.php';
 
-class Producto extends Conexion{
-    public $producto_id;
-    public $producto_nombre;
-    public $producto_precio;
-    public $producto_situacion;
+class Cliente extends Conexion{
+    public $cliente_id;
+    public $cliente_nombre;
+    public $cliente_nit;
+    public $cliente_situacion;
 
 
     public function __construct($args = [] )
     {
-        $this->producto_id = $args['producto_id'] ?? null;
-        $this->producto_nombre = $args['producto_nombre'] ?? '';
-        $this->producto_precio = $args['producto_precio'] ?? '';
-        $this->producto_situacion = $args['producto_situacion'] ?? '';
+        $this->cliente_id = $args['cliente_id'] ?? null;
+        $this->cliente_nombre = $args['cliente_nombre'] ?? '';
+        $this->cliente_nit = $args['cliente_nit'] ?? '';
+        $this->cliente_situacion = $args['cliente_situacion'] ?? '';
     }
 
     public function guardar(){
-        $sql = "INSERT INTO productos(producto_nombre, producto_precio) values('$this->producto_nombre','$this->producto_precio')";
+        $sql = "INSERT INTO clientes (cliente_nombre, cliente_nit) values('$this->cliente_nombre','$this->cliente_nit')";
         $resultado = self::ejecutar($sql);
         return $resultado;
     }
 
     public function buscar(){
-        $sql = "SELECT * from productos where producto_situacion = 1 ";
+        $sql = "SELECT * from clientes where cliente_situacion = 1 ";
 
-        if($this->producto_nombre != ''){
-            $sql .= " and producto_nombre like '%$this->producto_nombre%' ";
+        if($this->cliente_nombre != ''){
+            $sql .= " and cliente_nombre like '%$this->cliente_nombre%' ";
         }
 
-        if($this->producto_precio != ''){
-            $sql .= " and producto_precio = $this->producto_precio ";
+        if($this->cliente_nit != ''){
+            $sql .= " and cliente_nit = $this->cliente_nit ";
         }
 
-        if($this->producto_id != null){
-            $sql .= " and producto_id = $this->producto_id ";
+        if($this->cliente_id != null){
+            $sql .= " and cliente_id = $this->cliente_id ";
         }
 
         $resultado = self::servir($sql);
@@ -42,14 +42,14 @@ class Producto extends Conexion{
     }
 
     public function modificar(){
-        $sql = "UPDATE productos SET producto_nombre = '$this->producto_nombre', producto_precio = $this->producto_precio where producto_id = $this->producto_id";
+        $sql = "UPDATE clientes  SET cliente_nombre = '$this->cliente_nombre', cliente_nit = $this->cliente_nit where cliente_id = $this->cliente_id";
         
         $resultado = self::ejecutar($sql);
         return $resultado;
     }
 
     public function eliminar(){
-        $sql = "UPDATE productos SET producto_situacion = 0 where producto_id = $this->producto_id";
+        $sql = "UPDATE clientes  SET cliente_situacion = 0 where cliente_id = $this->cliente_id";
         
         $resultado = self::ejecutar($sql);
         return $resultado;
